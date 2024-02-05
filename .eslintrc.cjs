@@ -1,4 +1,3 @@
-const inProd = process.env.NODE_ENV === "production";
 
 module.exports = {
   root: true,
@@ -11,7 +10,7 @@ module.exports = {
   ],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
-  plugins: ["extra-rules" ,"eslint-plugin-react", "unused-imports", "import", "react-refresh"],
+  plugins: ["extra-rules" ,"eslint-plugin-react", "unused-imports", "import", "react-refresh", "local"],
   overrides: [{
     files: ["*.ts", "*.tsx"],
     // Your TypeScript files extension
@@ -25,15 +24,15 @@ module.exports = {
     }
   },
   rules: {
+    "local/exhaustive-deps": "warn",
+    "react-hooks/exhaustive-deps": "off",
     "prettier/prettier": ["warn", {}, { usePrettierrc: true }],
     "no-underscore-dangle": "off",
-    "no-console": inProd ? "error" : "off",
     "prefer-destructuring": "off",
     "consistent-return": "off",
     "func-style": ["warn", "expression"],
     "no-unused-vars": "off",
 
-    "extra-rules/no-commented-out-code": inProd ? "warn" : "off",
     "import/no-cycle": "error",
     "import/order": "off",
     "unused-imports/no-unused-vars": ["off",
@@ -46,7 +45,6 @@ module.exports = {
                       ],
     "@typescript-eslint/no-unused-vars": "off",
 
-    "react-hooks/exhaustive-deps": "warn",
     "react/prop-types": 0,
     "react/require-default-props": 0,
     "react/jsx-props-no-spreading": "off",

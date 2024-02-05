@@ -26,4 +26,5 @@
  (javascript-mode . ((dash-at-point-docset . "_,ts,react,js")
                      (lsp-javascript-preferences-quote-style . "double")))
  (json-mode . ((mode . jsonc)
-               (truncate-lines . t))))
+               (truncate-lines . t)))
+ (magit-status-mode . ((magit-todos-exclude-globs . (".git/" "3rdParty" "generated")))))
